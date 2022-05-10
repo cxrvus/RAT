@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 //#region imports
-const tag_1 = require("./tag");
+const xml_1 = require("./xml");
 const elementsLib = require("./elements");
 //#endregion
 const $main = () => {
@@ -18,15 +18,16 @@ const $main = () => {
             dataSetName: 'DataSet'
         }
     })({ contents: [['a', 'b'], ['c', 'd']] });
-    console.log(table);
+    // console.log(table);
+    console.log((0, xml_1.indentXml)(table));
 };
 //#region tests
 const tests = [
     //test: tag
-    (0, tag_1.tag)('TagType') == '  <TagType/>',
-    (0, tag_1.tag)('TagType', 'Content') == '  <TagType>Content</TagType>',
-    (0, tag_1.tag)('TagType', 'Content', 'Name') == '  <TagType Name="Name">Content</TagType>',
-    (0, tag_1.tag)('TagType', 'Multiline\nContent') == '  <TagType>\nMultiline\nContent\n</TagType>',
+    (0, xml_1.tag)('TagType') == '<TagType/>',
+    (0, xml_1.tag)('TagType', 'Content') == '<TagType>Content</TagType>',
+    (0, xml_1.tag)('TagType', 'Content', 'Name') == '<TagType Name="Name">Content</TagType>',
+    (0, xml_1.tag)('TagType', 'Multiline\nContent') == '<TagType>Multiline Content</TagType>',
 ];
 const testFailure = tests.findIndex(x => !x);
 //#endregion

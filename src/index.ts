@@ -1,5 +1,5 @@
 //#region imports
-import { tag } from './tag';
+import { tag, indentXml} from './xml';
 
 import elementsLib = require('./elements');
 //#endregion
@@ -22,7 +22,8 @@ const $main = (): void => {
         }
     })( { contents: [['a', 'b'], ['c', 'd']] });
 
-    console.log(table);
+    // console.log(table);
+    console.log(indentXml(table));
 }
 
 
@@ -30,10 +31,10 @@ const $main = (): void => {
 //#region tests
 const tests: boolean[] = [
     //test: tag
-    tag('TagType') == '  <TagType/>',
-    tag('TagType', 'Content') == '  <TagType>Content</TagType>',
-    tag('TagType', 'Content', 'Name') == '  <TagType Name="Name">Content</TagType>',
-    tag('TagType', 'Multiline\nContent') == '  <TagType>\nMultiline\nContent\n</TagType>',
+    tag('TagType') == '<TagType/>',
+    tag('TagType', 'Content') == '<TagType>Content</TagType>',
+    tag('TagType', 'Content', 'Name') == '<TagType Name="Name">Content</TagType>',
+    tag('TagType', 'Multiline\nContent') == '<TagType>Multiline Content</TagType>',
 ];
 const testFailure = tests.findIndex(x => !x);
 

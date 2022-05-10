@@ -1,4 +1,4 @@
-import { tag } from './tag';
+import { tag } from './xml';
 
 const TOTAL_WIDTH = 16.8;
 const UNIT = 'cm';
@@ -45,6 +45,6 @@ export const sTable = (settings: STableSettings) => {
             columns
         );
 
-        return tag('tablix', body);
+        return tag('Tablix', body);
     }
 }

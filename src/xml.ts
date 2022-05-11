@@ -1,5 +1,5 @@
-// source: https://stackoverflow.com/a/49458964 (modified)
 export const indentXml = (xmlstr: string): string => {
+    // source: https://stackoverflow.com/a/49458964 (modified)
     const _indentingStr = '  ';
     let [formatted, indent] = ['', ''];
     xmlstr

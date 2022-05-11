@@ -1,8 +1,8 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.tag = exports.genericTag = exports.indentXml = void 0;
-// source: https://stackoverflow.com/a/49458964 (modified)
 const indentXml = (xmlstr) => {
+    // source: https://stackoverflow.com/a/49458964 (modified)
     const _indentingStr = '  ';
     let [formatted, indent] = ['', ''];
     xmlstr
